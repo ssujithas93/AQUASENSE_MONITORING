@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AQUASENSE | Smart Aquaculture</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --blue: #063b66;
+  --light-blue: #087eb8;
+  --orange: #ff7a00;
+  --light-orange: #ffb347;
+  --white: #ffffff;
+  --light: #f4f9fc;
+  --dark: #123047;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* NAVBAR */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--blue);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 15px #0004;
+}
+
+.logo {
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--orange);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--orange);
+}
+
+/* HERO */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 8%;
+  background:
+    linear-gradient(135deg, #063b66ee, #087eb8dd),
+    radial-gradient(circle at top right, #ff7a00, transparent 30%);
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 850px;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--orange);
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  margin: 8px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid var(--orange);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-blue {
+  background: transparent;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px #0004;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--blue);
+  margin-bottom: 15px;
+}
+
+.section-title span {
+  color: var(--orange);
+}
+
+.section-text {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 290px;
+  padding: 35px 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px #063b6615;
+  transition: 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-top: 5px solid var(--orange);
+}
+
+.icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+/* ABOUT */
+.about {
+  background: #e9f4fa;
+}
+
+.about-box {
+  max-width: 850px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px #063b6615;
+}
+
+/* CTA */
+.contact {
+  background: linear-gradient(135deg, var(--orange), #ff9f32);
+  color: white;
+}
+
+.contact h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.contact .btn {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+/* FOOTER */
+footer {
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+footer span {
+  color: var(--orange);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* MOBILE */
+@media(max-width:700px) {
+
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    margin: 0 7px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+  <div class="logo">Aqua<span>Monitor</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="floating" style="font-size:60px;">🌊</div>
+
+    <h1>
+      Smarter Water Monitoring
+      <span>for Aquaculture</span>
+    </h1>
+
+    <p>
+      An affordable and smart solution to help fish farmers
+      monitor water quality and make better decisions.
+    </p>
+
+    <a href="#features" class="btn btn-orange">
+      Explore Features
+    </a>
+
+    <a href="#contact" class="btn btn-blue">
+      Request a Demo
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURES -->
+<section id="features">
+
+  <h2 class="section-title">
+    Why Choose <span>AQUASENSE?</span>
+  </h2>
+
+  <p class="section-text">
+    Our prototype combines affordable hardware and wireless
+    technology to simplify water-quality monitoring.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3>Water Monitoring</h3>
+      <p>
+        Sensors collect important water-quality readings
+        to help farmers understand pond conditions.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📡</div>
+      <h3>Wireless Data</h3>
+      <p>
+        LoRa technology allows sensor information
+        to be transmitted wirelessly.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Affordable</h3>
+      <p>
+        Designed as a low-cost solution for
+        small and medium-scale aquaculture operators.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <h2 class="section-title">
+    About <span>Our Solution</span>
+  </h2>
+
+  <div class="about-box">
+
+    <p>
+      We are developing a water-quality monitoring device
+      using ESP32, sensors, a Li-ion battery and LoRa
+      technology.
+    </p>
+
+    <br>
+
+    <p>
+      Our goal is to make water monitoring easier,
+      affordable and accessible for aquaculture farmers,
+      researchers and monitoring organizations.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <h2>Ready to See the Prototype?</h2>
+
+  <p>
+    Contact us to learn more or request a demonstration.
+  </p>
+
+  <a
+    class="btn"
+    href="mailto:your-email@example.com?subject=AQUASENSE%20Demo%20Request">
+    Request a Demo
+  </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    © 2026 <span>AQUASENSE</span> | Smart Aquaculture Solutions
+  </p>
+</footer>
+
+
+<script>
+
+/* Smooth card reveal animation */
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach((entry, index) => {
+
+      if (entry.isIntersecting) {
+
+        setTimeout(() => {
+          entry.target.classList.add("show");
+        }, index * 150);
+
+      }
+
+    });
+
+  },
+  { threshold: 0.2 }
+);
+
+cards.forEach(card => observer.observe(card));
+
+
+/* Button click feedback */
+
+document.querySelectorAll(".btn").forEach(button => {
+
+  button.addEventListener("click", function() {
+
+    this.style.transform = "scale(0.95)";
+
+    setTimeout(() => {
+      this.style.transform = "";
+    }, 150);
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
